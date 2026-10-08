@@ -4,10 +4,14 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private GridCellData gridCellData;
+    [SerializeField] private BombStats bombStats;
+    private Vector2Int gridPosition;
     [SerializeField] private GridManager gridManager;
     [SerializeField] private float moveSpeed = 2f;
+    [Header("Player Stats")]
     [SerializeField] private GameObject bombPrefab;
+    [SerializeField] private int maxHealth = 1;
+    [SerializeField] private int currentHealth;
     private Animator anim;
     private PlayerInputActions input;
 
@@ -16,17 +20,15 @@ public class Player : MonoBehaviour
     private Coroutine moveCo;
     private bool canInput = true;
     [SerializeField] private int bombCount = 0;
-    [SerializeField] private int maxBombCount = 1;
 
     private void Awake()
     {
         input = new PlayerInputActions();
         anim = GetComponent<Animator>();
-        gridManager = FindFirstObjectByType<GridManager>();
+        gridManager = FindAnyObjectByType<GridManager>();
 
-        gridCellData = new GridCellData(new Vector2Int(0,0));
-        gridCellData.objectType = GridObjectType.Player;
         InitPlayerTransform();
+        currentHealth = maxHealth;
     }
 
     private void Update()
@@ -41,21 +43,22 @@ public class Player : MonoBehaviour
 
     private void InitPlayerTransform()
     {
-        gridCellData.position = gridManager.GetRandomPosition();
-        transform.position = gridManager.GetGridPosition(gridCellData.position);
+        gridPosition = gridManager.GetRandomPosition();
+        transform.position = gridManager.GetGridPosition(gridPosition);
+        gridManager.SetPlayerOnCellData(gridPosition, this);
     }
 
-    private bool CanPlace() => bombCount < maxBombCount && canInput;
+    private bool CanPlace() => bombCount < bombStats.maxBombCount && canInput && gridManager.CanPlace(gridPosition);
     private bool CanMove()
     {
-        Vector2Int nextGridPosition = gridCellData.position + GetMoveInputGridPosition();
+        Vector2Int nextGridPosition = gridPosition + GetMoveInputGridPosition();
         return gridManager.CanMove(nextGridPosition);
     }
 
-    public void DecreaseMombCount() => bombCount--;
+    public void DecreaseBombCount() => bombCount--;
 
     [ContextMenu("Add Max Bomb Count")]
-    public void AddMaxBombCount() => maxBombCount++;
+    public void AddMaxBombCount() => bombStats.maxBombCount++;
 
     private void CreateBomb()
     {
@@ -63,7 +66,11 @@ public class Player : MonoBehaviour
             return;
 
         GameObject bomb = Instantiate(bombPrefab, transform.position, Quaternion.identity);
-        bomb.GetComponent<Bomb>().player = this;
+        Bomb bombScript = bomb.GetComponent<Bomb>();
+        bombScript.player = this;
+        bombScript.SetUp(gridManager, bombStats);
+        bombScript.SetGridData(gridPosition);
+        //Debug.Log("Create bomb in :" + gridPosition);
         bombCount++;
     }
 
@@ -96,8 +103,24 @@ public class Player : MonoBehaviour
     {
         canInput = false;
 
-        while (Vector2.Distance(transform.position, newPosition) > 0.05f)
+        bool wasRemove = false;
+        bool wasAdd = false;
+        while (true)
         {
+            float distance = Vector2.Distance(transform.position, newPosition);
+            if (distance <= 0.05f)
+                break;
+            if (distance < 0.8f && !wasAdd)
+            {
+                wasAdd = true;
+                Vector2Int newGridPosition = gridPosition + GetMoveInputGridPosition();
+                gridManager.SetPlayerOnCellData(newGridPosition, this);
+            }
+            if (distance < 0.2f && !wasRemove)
+            {
+                wasRemove = true;
+                gridManager.RemovePlayerOnCell(gridPosition, this);
+            }
             transform.position = Vector3.MoveTowards(transform.position, newPosition, moveSpeed * Time.deltaTime);
             yield return null;
         }
@@ -149,12 +172,27 @@ public class Player : MonoBehaviour
 
     private void SetGridPosition()
     {
-        gridCellData.position += GetMoveInputGridPosition();
+        gridPosition += GetMoveInputGridPosition();
     }
 
     private Vector2Int GetMoveInputGridPosition()
     {
         return new Vector2Int((int)moveInput.x, (int)moveInput.y);
+    }
+
+    public void TakeDamage()
+    {
+        Debug.Log("Take damage");
+        currentHealth--;
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
     }
 
     private void OnEnable()

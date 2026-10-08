@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: 6a2d67108b6bffa42bc188fa8f1b95f7
+guid: fe64bce828f8aa345b771d40e202469f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7038636041890924889
-    second: bom_chay_topdown_32x32_preview_0
-  - first:
-      213: 3302475808352151667
-    second: bom_chay_topdown_32x32_preview_1
-  - first:
-      213: 3132890135841090227
-    second: bom_chay_topdown_32x32_preview_2
-  - first:
-      213: -6456381520307948261
-    second: bom_chay_topdown_32x32_preview_3
+      213: 6053532107645678092
+    second: NormalTile_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -60,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -84,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -122,89 +113,177 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bom_chay_topdown_32x32_preview_0
+      name: NormalTile_0
       rect:
         serializedVersion: 2
-        x: 3
+        x: 0
         y: 0
-        width: 126
-        height: 125
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7a674dbefcdb15e90800000000000000
-      internalID: -7038636041890924889
+      spriteID: c0274a00167720450800000000000000
+      internalID: 6053532107645678092
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bom_chay_topdown_32x32_preview_1
+      name: NormalTile_1
       rect:
         serializedVersion: 2
-        x: 131
+        x: 32
         y: 0
-        width: 126
-        height: 125
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 378a62c1040c4dd20800000000000000
-      internalID: 3302475808352151667
+      spriteID: a46176ef880201e4ab7dc9085fc1858c
+      internalID: -2145421331
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bom_chay_topdown_32x32_preview_2
+      name: NormalTile_2
       rect:
         serializedVersion: 2
-        x: 259
+        x: 64
         y: 0
-        width: 126
-        height: 125
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 3ba2223daf24a7b20800000000000000
-      internalID: 3132890135841090227
+      spriteID: 7fd60ac3c556e1448b646f1071034b7f
+      internalID: 1275037088
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bom_chay_topdown_32x32_preview_3
+      name: NormalTile_3
       rect:
         serializedVersion: 2
-        x: 387
+        x: 96
         y: 0
-        width: 125
-        height: 125
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b15f5a3f6335666a0800000000000000
-      internalID: -6456381520307948261
+      spriteID: 4564e2be93f35da4fb9532d08a76bc2d
+      internalID: -1556639610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NormalTile_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1bdc589eac30414b89e7f638475a6ce
+      internalID: -1945771409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NormalTile_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 577580412f394db47af4dbc770a43767
+      internalID: 1998013831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NormalTile_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a7f0e303a9a9dd4a95455e7f208ccc1
+      internalID: 1442367867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NormalTile_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b6ff6216fd62e34c83b9f5f562348eb
+      internalID: 1524854772
       vertices: []
       indices: 
       edges: []
@@ -213,7 +292,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 607943f7a6e672447a31c027b9826ada
     internalID: 0
     vertices: []
     indices: 
@@ -221,12 +300,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      bom_chay_topdown_32x32_preview_0: -7038636041890924889
-      bom_chay_topdown_32x32_preview_1: 3302475808352151667
-      bom_chay_topdown_32x32_preview_2: 3132890135841090227
-      bom_chay_topdown_32x32_preview_3: -6456381520307948261
+      NormalTile_0: 6053532107645678092
+      NormalTile_1: -2145421331
+      NormalTile_2: 1275037088
+      NormalTile_3: -1556639610
+      NormalTile_4: -1945771409
+      NormalTile_5: 1998013831
+      NormalTile_6: 1442367867
+      NormalTile_7: 1524854772
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
