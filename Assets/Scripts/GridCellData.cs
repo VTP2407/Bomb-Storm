@@ -5,26 +5,28 @@ using UnityEngine;
 public class GridCellData 
 {
     public Vector2Int position;
-    public GridObjectType objectType;
+    public ObjectType objectType;
     public Player player;
+    public Bomb bomb;
 
     public GridCellData(Vector2Int position)
     {
         this.position = position;
-        objectType = GridObjectType.Empty;
+        objectType = ObjectType.Empty;
     }
 
-    public GridCellData(Vector2Int position, GridObjectType objectType)
+    public GridCellData(Vector2Int position, ObjectType objectType)
     {
         this.position = position;
         this.objectType = objectType;
     }
 }
 
-public enum GridObjectType
+public enum ObjectType
 {
     Empty,
     Wall,
     Box,
-    Bomb
+    Bomb,
+    Buff
 }

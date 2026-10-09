@@ -9,6 +9,7 @@ public class Bomb : MonoBehaviour
     private BombStats bombStats;
     public GridManager gridManager;
     private Animator anim;
+    public bool wasExplode { get; private set; } = false;
 
     public void SetUp(GridManager gridManager, BombStats bombStats)
     {
@@ -25,34 +26,50 @@ public class Bomb : MonoBehaviour
 
     private void Start()
     {
-        Destroy(gameObject, bombStats.lifeTime);
-    }
-
-    private void OnDestroy()
-    {
-        Explode();
-        player.DecreaseBombCount();
+        Invoke(nameof(Explode), bombStats.lifeTime);
     }
 
     public void SetGridData(Vector2Int position)
     {
         gridPosition = position;
-        gridManager.SetGridCellData(position, GridObjectType.Bomb);
+        gridManager.SetBombOnCell(position, this);
     }
 
-    private void Explode()
+    public void Explode()
     {
+        if (wasExplode == true) return;
+        wasExplode = true;
         Debug.Log("Boom");
         gridManager.CreateExplodeEffect(gridPosition, bombStats.canPierceWall);
-        gridManager.SetGridCellData(gridPosition, GridObjectType.Empty);
-        int currentRange = 0;
-        while (currentRange < bombStats.rangeExplode)
+
+        ExplodeDirection(Vector2Int.right);
+        ExplodeDirection(Vector2Int.left);
+        ExplodeDirection(Vector2Int.up);
+        ExplodeDirection(Vector2Int.down);
+
+        player.DecreaseBombCount();
+        gridManager.ResetBombOnCell(gridPosition);
+        Destroy(gameObject);
+    }
+
+    private void ExplodeDirection(Vector2Int direction)
+    {
+        for (int range = 1; range <= bombStats.rangeExplode; range++)
         {
-            currentRange++;
-            gridManager.CreateExplodeEffect(gridPosition + new Vector2Int(currentRange, 0), bombStats.canPierceWall);
-            gridManager.CreateExplodeEffect(gridPosition + new Vector2Int(-currentRange, 0), bombStats.canPierceWall);
-            gridManager.CreateExplodeEffect(gridPosition + new Vector2Int(0, currentRange), bombStats.canPierceWall);
-            gridManager.CreateExplodeEffect(gridPosition + new Vector2Int(0, -currentRange), bombStats.canPierceWall);
+            Vector2Int newPosition = gridPosition + direction * range;
+
+            if (!gridManager.InsideGrid(newPosition))
+                break;
+
+            ObjectType objectType = gridManager.GetObjectTypeOnCell(newPosition);
+
+            if (objectType == ObjectType.Wall && !bombStats.canPierceWall)
+                break;
+
+            gridManager.CreateExplodeEffect(newPosition, bombStats.canPierceWall);
+
+            if ((objectType == ObjectType.Box || objectType == ObjectType.Bomb) && !bombStats.canPierceWall)
+                break;
         }
     }
 }

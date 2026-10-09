@@ -1,0 +1,1378 @@
+fileFormatVersion: 2
+guid: 6bdf117b5045d3b429371a732cf34b63
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4854444549903126854
+    second: BombLevelUp_0
+  - first:
+      213: 6980663569010188701
+    second: BombLevelUp_1
+  - first:
+      213: -2506712664786781865
+    second: BombLevelUp_2
+  - first:
+      213: -7910373093226625428
+    second: BombLevelUp_3
+  - first:
+      213: 6989770739696731813
+    second: BombLevelUp_4
+  - first:
+      213: 4010931405861037847
+    second: BombLevelUp_5
+  - first:
+      213: 8393578474749565236
+    second: BombLevelUp_6
+  - first:
+      213: 5567636092046904788
+    second: BombLevelUp_7
+  - first:
+      213: 3130214868032416847
+    second: BombLevelUp_8
+  - first:
+      213: -531735941004782830
+    second: BombLevelUp_9
+  - first:
+      213: -7107047979754347016
+    second: BombLevelUp_10
+  - first:
+      213: -816353445824043208
+    second: BombLevelUp_11
+  - first:
+      213: 4611793485754410360
+    second: BombLevelUp_12
+  - first:
+      213: -5122261475215616043
+    second: BombLevelUp_13
+  - first:
+      213: 7638476016199078281
+    second: BombLevelUp_14
+  - first:
+      213: -2541768493750799860
+    second: BombLevelUp_15
+  - first:
+      213: 3295821460107173742
+    second: BombLevelUp_16
+  - first:
+      213: 1260710282590804562
+    second: BombLevelUp_17
+  - first:
+      213: 8080130576275371375
+    second: BombLevelUp_18
+  - first:
+      213: 7900452747265418901
+    second: BombLevelUp_19
+  - first:
+      213: 707990240518228104
+    second: BombLevelUp_20
+  - first:
+      213: -2939930677966232385
+    second: BombLevelUp_21
+  - first:
+      213: 5120850645183909058
+    second: BombLevelUp_22
+  - first:
+      213: 8324330714160791217
+    second: BombLevelUp_23
+  - first:
+      213: -6960420106474520040
+    second: BombLevelUp_24
+  - first:
+      213: -6108507032694914900
+    second: BombLevelUp_25
+  - first:
+      213: 8571140653712350491
+    second: BombLevelUp_26
+  - first:
+      213: -44057062681384762
+    second: BombLevelUp_27
+  - first:
+      213: 5409485751512992581
+    second: BombLevelUp_28
+  - first:
+      213: -2332853140993186085
+    second: BombLevelUp_29
+  - first:
+      213: 8597886890288601083
+    second: BombLevelUp_30
+  - first:
+      213: -6288178131208387975
+    second: BombLevelUp_31
+  - first:
+      213: -6807369914856816040
+    second: BombLevelUp_32
+  - first:
+      213: -8665942378148757602
+    second: BombLevelUp_33
+  - first:
+      213: -3619117165813805328
+    second: BombLevelUp_34
+  - first:
+      213: -6829948498246783148
+    second: BombLevelUp_35
+  - first:
+      213: 3259057272309057590
+    second: BombLevelUp_36
+  - first:
+      213: 5638368376705374584
+    second: BombLevelUp_37
+  - first:
+      213: -8554112922334284606
+    second: BombLevelUp_38
+  - first:
+      213: -726482208378062670
+    second: BombLevelUp_39
+  - first:
+      213: 8787083125069772846
+    second: BombLevelUp_40
+  - first:
+      213: -7987973696591313280
+    second: BombLevelUp_41
+  - first:
+      213: 5037500929538704927
+    second: BombLevelUp_42
+  - first:
+      213: 3630256430636777207
+    second: BombLevelUp_43
+  - first:
+      213: 2456943566495678914
+    second: BombLevelUp_44
+  - first:
+      213: -55223199965122237
+    second: BombLevelUp_45
+  - first:
+      213: 5258665474968742016
+    second: BombLevelUp_46
+  - first:
+      213: 2532638227245119334
+    second: BombLevelUp_47
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1254
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BombLevelUp_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1254
+        height: 1238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6419ec229937e5340800000000000000
+      internalID: 4854444549903126854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombLevelUp_1
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 1195
+        width: 23
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d91ec57e78c40e060800000000000000
+      internalID: 6980663569010188701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombLevelUp_2
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 371
+        width: 29
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 759396dcc1e563dd0800000000000000
+      internalID: -2506712664786781865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombLevelUp_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 129
+        width: 5
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c664b692595b83290800000000000000
+      internalID: -7910373093226625428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombLevelUp_4
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 93
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a60b015477a00160800000000000000
+      internalID: 6989770739696731813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombLevelUp_5
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 85
+        width: 12
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7172ec0ecd0b9a730800000000000000
+      internalID: 4010931405861037847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombLevelUp_6
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 85
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43910d5d62bfb7470800000000000000
+      internalID: 8393578474749565236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombLevelUp_7
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 95
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4dd8911f687344d40800000000000000
+      internalID: 5567636092046904788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombLevelUp_8
+      rect:
+        serializedVersion: 2
+        x: 569
+        y: 79
+        width: 11
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4ce7bf76d1c07b20800000000000000
+      internalID: 3130214868032416847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombLevelUp_9
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 85
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2131a1a9af4ee98f0800000000000000
+      internalID: -531735941004782830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombLevelUp_10
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 67
+        width: 35
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f5a5156481be5d90800000000000000
+      internalID: -7107047979754347016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombLevelUp_11
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 47
+        width: 33
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 837ed72cddabba4f0800000000000000
+      internalID: -816353445824043208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombLevelUp_12
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 47
+        width: 78
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8752adfadb1600040800000000000000
+      internalID: 4611793485754410360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombLevelUp_13
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 21
+        width: 59
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d7da13c3521ae8b0800000000000000
+      internalID: -5122261475215616043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombLevelUp_14
+      rect:
+        serializedVersion: 2
+        x: 1075
+        y: 85
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98113e26771510a60800000000000000
+      internalID: 7638476016199078281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombLevelUp_15
+      rect:
+        serializedVersion: 2
+        x: 1138
+        y: 76
+        width: 24
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0234b49503d9bcd0800000000000000
+      internalID: -2541768493750799860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombLevelUp_16
+      rect:
+        serializedVersion: 2
+        x: 1150
+        y: 93
+        width: 23
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6f1ccce72c1dbd20800000000000000
+      internalID: 3295821460107173742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombLevelUp_17
+      rect:
+        serializedVersion: 2
+        x: 1172
+        y: 77
+        width: 21
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25ad18e8251fe7110800000000000000
+      internalID: 1260710282590804562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombLevelUp_18
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 84
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f657aa1e2f3622070800000000000000
+      internalID: 8080130576275371375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombLevelUp_19
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 75
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 596a38d4aeb04ad60800000000000000
+      internalID: 7900452747265418901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombLevelUp_20
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 79
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88848866f5943d900800000000000000
+      internalID: 707990240518228104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombLevelUp_21
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 79
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb4ac83ff944337d0800000000000000
+      internalID: -2939930677966232385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombLevelUp_22
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 79
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cc4406c78ae01740800000000000000
+      internalID: 5120850645183909058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombLevelUp_23
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 41
+        width: 94
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1be7d6a2ea6f58370800000000000000
+      internalID: 8324330714160791217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombLevelUp_24
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 71
+        width: 17
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81289128ace976f90800000000000000
+      internalID: -6960420106474520040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombLevelUp_25
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 66
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca08e30d7393a3ba0800000000000000
+      internalID: -6108507032694914900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombLevelUp_26
+      rect:
+        serializedVersion: 2
+        x: 678
+        y: 75
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1d1f60430fc2f670800000000000000
+      internalID: 8571140653712350491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombLevelUp_27
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 75
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c8670db55a736ff0800000000000000
+      internalID: -44057062681384762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombLevelUp_28
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 12
+        width: 97
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54b087c51aa521b40800000000000000
+      internalID: 5409485751512992581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombLevelUp_29
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 55
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd662f1ad6a00afd0800000000000000
+      internalID: -2332853140993186085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombLevelUp_30
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 65
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf7d3aab294d15770800000000000000
+      internalID: 8597886890288601083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombLevelUp_31
+      rect:
+        serializedVersion: 2
+        x: 1108
+        y: 63
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 972c1fc4e47ebb8a0800000000000000
+      internalID: -6288178131208387975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombLevelUp_32
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 63
+        width: 17
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8524742212d5781a0800000000000000
+      internalID: -6807369914856816040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombLevelUp_33
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 53
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9f707a32536cb780800000000000000
+      internalID: -8665942378148757602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombLevelUp_34
+      rect:
+        serializedVersion: 2
+        x: 569
+        y: 49
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fe4623dc1056cdc0800000000000000
+      internalID: -3619117165813805328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombLevelUp_35
+      rect:
+        serializedVersion: 2
+        x: 597
+        y: 41
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45fa9c707062731a0800000000000000
+      internalID: -6829948498246783148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombLevelUp_36
+      rect:
+        serializedVersion: 2
+        x: 882
+        y: 25
+        width: 27
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63882aa625f7a3d20800000000000000
+      internalID: 3259057272309057590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombLevelUp_37
+      rect:
+        serializedVersion: 2
+        x: 1059
+        y: 35
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 879d15e4a228f3e40800000000000000
+      internalID: 5638368376705374584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombLevelUp_38
+      rect:
+        serializedVersion: 2
+        x: 1139
+        y: 43
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c4bfa76e9fa94980800000000000000
+      internalID: -8554112922334284606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombLevelUp_39
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 18
+        width: 25
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b8fbf1d7440be5f0800000000000000
+      internalID: -726482208378062670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombLevelUp_40
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 21
+        width: 24
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e28fc99db8df1f970800000000000000
+      internalID: 8787083125069772846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombLevelUp_41
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 13
+        width: 60
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 086c28bbe34052190800000000000000
+      internalID: -7987973696591313280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombLevelUp_42
+      rect:
+        serializedVersion: 2
+        x: 1029
+        y: 15
+        width: 48
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f16cad4d76cc8e540800000000000000
+      internalID: 5037500929538704927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombLevelUp_43
+      rect:
+        serializedVersion: 2
+        x: 1075
+        y: 29
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7febeaf5df2416230800000000000000
+      internalID: 3630256430636777207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombLevelUp_44
+      rect:
+        serializedVersion: 2
+        x: 1084
+        y: 31
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c108220821d81220800000000000000
+      internalID: 2456943566495678914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombLevelUp_45
+      rect:
+        serializedVersion: 2
+        x: 1146
+        y: 15
+        width: 29
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 341f7becacecb3ff0800000000000000
+      internalID: -55223199965122237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombLevelUp_46
+      rect:
+        serializedVersion: 2
+        x: 916
+        y: 15
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0886f1c43688af840800000000000000
+      internalID: 5258665474968742016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombLevelUp_47
+      rect:
+        serializedVersion: 2
+        x: 923
+        y: 15
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66735879c0db52320800000000000000
+      internalID: 2532638227245119334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      BombLevelUp_0: 4854444549903126854
+      BombLevelUp_1: 6980663569010188701
+      BombLevelUp_10: -7107047979754347016
+      BombLevelUp_11: -816353445824043208
+      BombLevelUp_12: 4611793485754410360
+      BombLevelUp_13: -5122261475215616043
+      BombLevelUp_14: 7638476016199078281
+      BombLevelUp_15: -2541768493750799860
+      BombLevelUp_16: 3295821460107173742
+      BombLevelUp_17: 1260710282590804562
+      BombLevelUp_18: 8080130576275371375
+      BombLevelUp_19: 7900452747265418901
+      BombLevelUp_2: -2506712664786781865
+      BombLevelUp_20: 707990240518228104
+      BombLevelUp_21: -2939930677966232385
+      BombLevelUp_22: 5120850645183909058
+      BombLevelUp_23: 8324330714160791217
+      BombLevelUp_24: -6960420106474520040
+      BombLevelUp_25: -6108507032694914900
+      BombLevelUp_26: 8571140653712350491
+      BombLevelUp_27: -44057062681384762
+      BombLevelUp_28: 5409485751512992581
+      BombLevelUp_29: -2332853140993186085
+      BombLevelUp_3: -7910373093226625428
+      BombLevelUp_30: 8597886890288601083
+      BombLevelUp_31: -6288178131208387975
+      BombLevelUp_32: -6807369914856816040
+      BombLevelUp_33: -8665942378148757602
+      BombLevelUp_34: -3619117165813805328
+      BombLevelUp_35: -6829948498246783148
+      BombLevelUp_36: 3259057272309057590
+      BombLevelUp_37: 5638368376705374584
+      BombLevelUp_38: -8554112922334284606
+      BombLevelUp_39: -726482208378062670
+      BombLevelUp_4: 6989770739696731813
+      BombLevelUp_40: 8787083125069772846
+      BombLevelUp_41: -7987973696591313280
+      BombLevelUp_42: 5037500929538704927
+      BombLevelUp_43: 3630256430636777207
+      BombLevelUp_44: 2456943566495678914
+      BombLevelUp_45: -55223199965122237
+      BombLevelUp_46: 5258665474968742016
+      BombLevelUp_47: 2532638227245119334
+      BombLevelUp_5: 4010931405861037847
+      BombLevelUp_6: 8393578474749565236
+      BombLevelUp_7: 5567636092046904788
+      BombLevelUp_8: 3130214868032416847
+      BombLevelUp_9: -531735941004782830
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

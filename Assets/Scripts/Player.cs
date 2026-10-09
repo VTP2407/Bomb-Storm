@@ -43,7 +43,7 @@ public class Player : MonoBehaviour
 
     private void InitPlayerTransform()
     {
-        gridPosition = gridManager.GetRandomPosition();
+        gridPosition = gridManager.GetRandomGridPosition();
         transform.position = gridManager.GetGridPosition(gridPosition);
         gridManager.SetPlayerOnCellData(gridPosition, this);
     }
@@ -110,13 +110,19 @@ public class Player : MonoBehaviour
             float distance = Vector2.Distance(transform.position, newPosition);
             if (distance <= 0.05f)
                 break;
-            if (distance < 0.8f && !wasAdd)
+            if (distance < 0.7f && !wasAdd)
             {
                 wasAdd = true;
                 Vector2Int newGridPosition = gridPosition + GetMoveInputGridPosition();
                 gridManager.SetPlayerOnCellData(newGridPosition, this);
+                if(gridManager.GetObjectTypeOnCell(newGridPosition)==ObjectType.Buff)
+                {
+                    gridManager.ResetObjectTile(newGridPosition);
+                    AddMaxBombCount();
+                    Debug.Log("Get buff in: " + newGridPosition);
+                }
             }
-            if (distance < 0.2f && !wasRemove)
+            if (distance < 0.3f && !wasRemove)
             {
                 wasRemove = true;
                 gridManager.RemovePlayerOnCell(gridPosition, this);
