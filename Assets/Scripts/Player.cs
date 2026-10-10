@@ -4,8 +4,9 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+    public string playerId = "";
     [SerializeField] private BombStats bombStats;
-    private Vector2Int gridPosition;
+    public Vector2Int gridPosition;
     [SerializeField] private GridManager gridManager;
     [SerializeField] private float moveSpeed = 2f;
     [Header("Player Stats")]
@@ -13,46 +14,44 @@ public class Player : MonoBehaviour
     [SerializeField] private int maxHealth = 1;
     [SerializeField] private int currentHealth;
     private Animator anim;
-    private PlayerInputActions input;
-
-    private Vector2 moveInput;
+    [SerializeField] private Vector2 moveInput;
 
     private Coroutine moveCo;
-    private bool canInput = true;
+    public bool canInput = true;
     [SerializeField] private int bombCount = 0;
+
+    public void SetMoveInput(int x, int y)
+    {
+        moveInput = new Vector2(x, y);
+    }
 
     private void Awake()
     {
-        input = new PlayerInputActions();
         anim = GetComponent<Animator>();
         gridManager = FindAnyObjectByType<GridManager>();
 
-        InitPlayerTransform();
+        //InitPlayerTransform();
         currentHealth = maxHealth;
+        anim.SetFloat("LastMoveY", 1);
     }
 
     private void Update()
     {
-        if (canInput)
-        {
-            InputHandle();
-            if (CanMove()) MoveHandle();
-        }
+        if (string.IsNullOrEmpty(playerId)) return;
+
         AnimHandle();
     }
 
-    private void InitPlayerTransform()
+    public void InitPlayerTransform(Vector2Int position)
     {
-        gridPosition = gridManager.GetRandomGridPosition();
-        transform.position = gridManager.GetGridPosition(gridPosition);
-        gridManager.SetPlayerOnCellData(gridPosition, this);
+        transform.position = gridManager.GetWordPosition(position);
+        gridManager.SetPlayerOnCellData(position, this);
     }
 
     private bool CanPlace() => bombCount < bombStats.maxBombCount && canInput && gridManager.CanPlace(gridPosition);
-    private bool CanMove()
+    public bool CanMove(Vector2Int position)
     {
-        Vector2Int nextGridPosition = gridPosition + GetMoveInputGridPosition();
-        return gridManager.CanMove(nextGridPosition);
+        return gridManager.CanMove(position);
     }
 
     public void DecreaseBombCount() => bombCount--;
@@ -74,37 +73,20 @@ public class Player : MonoBehaviour
         bombCount++;
     }
 
-    private void MoveHandle()
+    public void SyncPositionFromServer(Vector2Int serverGridPosition)
     {
-        if (moveInput.x != 0)
-        {
-            SetPosition(moveInput.x, 0);
-        }
-        else if (moveInput.y != 0)
-        {
-            SetPosition(0, moveInput.y);
-        }
+        if (moveCo != null) StopCoroutine(moveCo);
+        moveCo = StartCoroutine(MoveCo(serverGridPosition));
     }
 
-    private void SetPosition(float x, float y)
-    {
-        Vector3 newPosition = transform.position + new Vector3(x, y);
-        Standardize(new Vector2(x, y));
-
-        if (moveCo != null)
-        {
-            StopCoroutine(moveCo);
-        }
-
-        moveCo = StartCoroutine(MoveCo(newPosition));
-    }
-
-    private IEnumerator MoveCo(Vector3 newPosition)
+    private IEnumerator MoveCo(Vector2Int serverGridPosition)
     {
         canInput = false;
-
         bool wasRemove = false;
         bool wasAdd = false;
+
+        Vector3 newPosition = gridManager.GetWordPosition(serverGridPosition);
+
         while (true)
         {
             float distance = Vector2.Distance(transform.position, newPosition);
@@ -113,27 +95,27 @@ public class Player : MonoBehaviour
             if (distance < 0.7f && !wasAdd)
             {
                 wasAdd = true;
-                Vector2Int newGridPosition = gridPosition + GetMoveInputGridPosition();
-                gridManager.SetPlayerOnCellData(newGridPosition, this);
-                if(gridManager.GetObjectTypeOnCell(newGridPosition)==ObjectType.Buff)
+                gridManager.SetPlayerOnCellData(serverGridPosition, this);
+                if (gridManager.GetObjectTypeOnCell(serverGridPosition) == ObjectType.Buff)
                 {
-                    gridManager.ResetObjectTile(newGridPosition);
+                    gridManager.ResetObjectTile(serverGridPosition);
                     AddMaxBombCount();
-                    Debug.Log("Get buff in: " + newGridPosition);
+                    Debug.Log("Get buff in: " + serverGridPosition);
                 }
             }
             if (distance < 0.3f && !wasRemove)
             {
                 wasRemove = true;
                 gridManager.RemovePlayerOnCell(gridPosition, this);
+                gridPosition = serverGridPosition;
             }
             transform.position = Vector3.MoveTowards(transform.position, newPosition, moveSpeed * Time.deltaTime);
             yield return null;
         }
 
-        canInput = true;
         transform.position = newPosition;
-        SetGridPosition();
+        canInput = true;
+        SetMoveInput(0, 0);
     }
 
     private void AnimHandle()
@@ -154,38 +136,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void InputHandle()
-    {
-        moveInput = input.Player.Move.ReadValue<Vector2>();
-
-        if (moveInput != Vector2.zero)
-        {
-            Standardize(moveInput);
-        }
-    }
-
-    private void Standardize(Vector2 inputValue)
-    {
-        if (Mathf.Abs(inputValue.x) > Mathf.Abs(inputValue.y))
-        {
-            moveInput = new Vector2(Mathf.Sign(inputValue.x), 0);
-        }
-        else
-        {
-            moveInput = new Vector2(0, Mathf.Sign(inputValue.y));
-        }
-    }
-
-    private void SetGridPosition()
-    {
-        gridPosition += GetMoveInputGridPosition();
-    }
-
-    private Vector2Int GetMoveInputGridPosition()
-    {
-        return new Vector2Int((int)moveInput.x, (int)moveInput.y);
-    }
-
     public void TakeDamage()
     {
         Debug.Log("Take damage");
@@ -196,20 +146,13 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void SetGridPosition(Vector2Int position)
+    {
+        gridPosition = position;
+    }
+
     private void Die()
     {
         Destroy(gameObject);
-    }
-
-    private void OnEnable()
-    {
-        input.Enable();
-
-        input.Player.Place.performed += ctx => CreateBomb();
-    }
-
-    private void OnDisable()
-    {
-        input.Disable();
     }
 }

@@ -26,9 +26,7 @@ public class GridManager : MonoBehaviour
 
     private void Awake()
     {
-        SetPositionOffset();
-
-        Initialize();
+        //Initialize();
     }
 
     private void SetPositionOffset()
@@ -71,8 +69,49 @@ public class GridManager : MonoBehaviour
         return true;
     }
 
+    public void BuildMapFromServer(int serverWidth, int serverHeight, int[] mapData)
+    {
+        this.width = serverWidth;
+        this.height = serverHeight;
+
+        SetPositionOffset();
+
+        gridCellsDatas = new GridCellData[width, height];
+
+        for(int i = 0; i < width; i++)
+        {
+            for(int j =0; j < height; j++)
+            {
+                Vector2Int gridPosition = new Vector2Int(i, j);
+                int index = j * width + i;
+                int tileType = mapData[index];
+
+                if (tilemapBackground != null)
+                {
+                    SetTile(tilemapBackground, gridPosition, normalTile);
+                }
+
+                if (tileType == 1) // 1 = Tường cứng (Wall)
+                {
+                    gridCellsDatas[i, j] = new GridCellData(gridPosition, ObjectType.Wall);
+                    SetTile(tilemapObject, gridPosition, wallTile);
+                }
+                else if (tileType == 2) // 2 = Hộp gỗ (Box)
+                {
+                    gridCellsDatas[i, j] = new GridCellData(gridPosition, ObjectType.Box);
+                    SetTile(tilemapObject, gridPosition, BoxTile);
+                }
+                else // 0 = Ô trống (Empty)
+                {
+                    gridCellsDatas[i, j] = new GridCellData(gridPosition, ObjectType.Empty);
+                }
+            }
+        }
+    }
+
     private void Initialize()
     {
+        SetPositionOffset();
         gridCellsDatas = new GridCellData[width, height];
 
         for (int i = 0; i < width; i++)
@@ -166,7 +205,7 @@ public class GridManager : MonoBehaviour
         return emptyGridList[Random.Range(0, emptyGridList.Count)];
     }
 
-    public Vector3 GetGridPosition(Vector2Int position)
+    public Vector3 GetWordPosition(Vector2Int position)
     {
         return new Vector3(position.x, position.y) - offset;
     }
