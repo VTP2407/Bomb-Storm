@@ -20,9 +20,6 @@ public class GridManager : MonoBehaviour
     [SerializeField] private TileBase footTile;
     [SerializeField] private TileBase BoxTile;
     [SerializeField] private TileBase buffTile;
-    [SerializeField] private int boxAmount = 10;
-    [SerializeField] private float chanceFindBuff = 0.5f;
-
 
     private void Awake()
     {
@@ -33,40 +30,8 @@ public class GridManager : MonoBehaviour
     {
         offset = new Vector3((width - 1) / 2f, (height - 1) / 2f);
 
-        tilemapObject.transform.position = -offset;
-        tilemapBackground.transform.position = -offset;
-
         tilemapObject.transform.position = -offset - new Vector3(0.5f, 0.5f, 0f);
         tilemapBackground.transform.position = -offset - new Vector3(0.5f, 0.5f, 0f);
-    }
-
-    private void SetRandomBox()
-    {
-        int d = 0;
-        int attempts = width * height * 10;
-        while (d < boxAmount && attempts > 0)
-        {
-            int x = Random.Range(1, width - 1);
-            int y = Random.Range(1, height - 1);
-            Vector2Int position = new Vector2Int(x, y);
-
-            if (CanSetBox(position) == false)
-                continue;
-
-            SetTile(tilemapObject, position, BoxTile);
-            SetGridObjectType(position, ObjectType.Box);
-            d++;
-            attempts--;
-        }
-    }
-
-    private bool CanSetBox(Vector2Int position)
-    {
-        if (GetObjectTypeOnCell(position) != ObjectType.Empty)
-            return false;
-        if (GetPlayerOnCell(position) != null)
-            return false;
-        return true;
     }
 
     public void BuildMapFromServer(int serverWidth, int serverHeight, int[] mapData)
@@ -78,9 +43,9 @@ public class GridManager : MonoBehaviour
 
         gridCellsDatas = new GridCellData[width, height];
 
-        for(int i = 0; i < width; i++)
+        for (int i = 0; i < width; i++)
         {
-            for(int j =0; j < height; j++)
+            for (int j = 0; j < height; j++)
             {
                 Vector2Int gridPosition = new Vector2Int(i, j);
                 int index = j * width + i;
@@ -109,45 +74,6 @@ public class GridManager : MonoBehaviour
         }
     }
 
-    private void Initialize()
-    {
-        SetPositionOffset();
-        gridCellsDatas = new GridCellData[width, height];
-
-        for (int i = 0; i < width; i++)
-        {
-            for (int j = 0; j < height; j++)
-            {
-                InitGridCell(i, j);
-            }
-        }
-
-        SetRandomBox();
-    }
-
-    private void InitGridCell(int i, int j)
-    {
-        Vector2Int gridPosition = new Vector2Int(i, j);
-
-
-        bool isWall = i == 0 || j == 0 || i == width - 1 || j == height - 1;
-
-        if (isWall)
-        {
-            gridCellsDatas[i, j] = new GridCellData(gridPosition, ObjectType.Wall);
-            SetTile(tilemapObject, gridPosition, wallTile);
-        }
-        else
-        {
-            gridCellsDatas[i, j] = new GridCellData(gridPosition);
-        }
-
-        if (tilemapBackground != null)
-        {
-            SetTile(tilemapBackground, gridPosition, normalTile);
-        }
-    }
-
     private void SetTile(Tilemap tilemap, Vector2Int position, TileBase tile)
     {
         Vector3Int tilePosition = new Vector3Int(position.x, position.y, 0);
@@ -161,7 +87,7 @@ public class GridManager : MonoBehaviour
 
     public bool CanMove(Vector2Int position)
     {
-        if (!InsideGrid(position))
+        if (gridCellsDatas == null || !InsideGrid(position))
             return false;
 
         ObjectType objectType = GetObjectTypeOnCell(position);
@@ -189,22 +115,6 @@ public class GridManager : MonoBehaviour
         return true;
     }
 
-    public Vector2Int GetRandomGridPosition()
-    {
-        List<Vector2Int> emptyGridList = new List<Vector2Int>();
-
-        for (int i = 1; i < width - 1; i++)
-        {
-            for (int j = 1; j < height - 1; j++)
-            {
-                if (gridCellsDatas[i, j].objectType == ObjectType.Empty)
-                    emptyGridList.Add(new Vector2Int(i, j));
-            }
-        }
-
-        return emptyGridList[Random.Range(0, emptyGridList.Count)];
-    }
-
     public Vector3 GetWordPosition(Vector2Int position)
     {
         return new Vector3(position.x, position.y) - offset;
@@ -212,80 +122,33 @@ public class GridManager : MonoBehaviour
 
     public void CreateExplodeEffect(Vector2Int position, bool canPierceWall)
     {
-        if (!CanExplode(position, canPierceWall))
-            return;
+        if (!InsideGrid(position)) return;
+
+        ObjectType preType = GetObjectTypeOnCell(position);
+        if (preType == ObjectType.Wall && !canPierceWall) return;
 
         SetTile(tilemapObject, position, explosionTile);
         StartCoroutine(ResetTileCo(position, GetObjectTypeOnCell(position)));
-
-        Player player = GetPlayerOnCell(position);
-        if (player != null)
-            player.TakeDamage();
     }
 
-    private IEnumerator ResetTileCo(Vector2Int position, ObjectType objectType)
+    private IEnumerator ResetTileCo(Vector2Int position, ObjectType preType)
     {
-        if (objectType == ObjectType.Bomb)
-        {
-            Bomb bomb = GetBombOnCell(position);
-            if (!bomb.wasExplode)
-            {
-                bomb.Explode();
-            }
-
-        }
-
         yield return new WaitForSeconds(0.2f);
 
-        if (objectType == ObjectType.Wall)
+        if (preType == ObjectType.Wall)
         {
             SetTile(tilemapObject, position, wallTile);
         }
-        else if (objectType == ObjectType.Empty || objectType == ObjectType.Buff)
-        {
-            SetTile(tilemapObject, position, null);
-        }
-        else if (objectType == ObjectType.Bomb)
+        else
         {
             ResetObjectTile(position);
             SetGridObjectType(position, ObjectType.Empty);
         }
-        else if (objectType == ObjectType.Box)
-        {
-            if (FindBuff())
-            {
-                SetTile(tilemapObject, position, buffTile);
-                SetGridObjectType(position, ObjectType.Buff);
-            }
-            else
-            {
-                ResetObjectTile(position);
-                SetGridObjectType(position, ObjectType.Empty);
-            }
-        }
-    }
-
-    private bool CanExplode(Vector2Int position, bool canPierceWall)
-    {
-        if (!InsideGrid(position))
-            return false;
-
-        if (GetObjectTypeOnCell(position) == ObjectType.Wall && !canPierceWall)
-            return true;
-
-        return true;
-    }
-
-    public bool CanPlace(Vector2Int position)
-    {
-        if (GetObjectTypeOnCell(position) == ObjectType.Bomb)
-            return false;
-        return true;
     }
 
     public void SetGridObjectType(Vector2Int position, ObjectType objectType)
     {
-        //Debug.Log("Set data for grid cell: " + position + " Type: " + objectType);
+        //Debug.Log("Set data for grid cell: " + position + " Type: " + preType);
         gridCellsDatas[position.x, position.y].objectType = objectType;
     }
 
@@ -303,19 +166,9 @@ public class GridManager : MonoBehaviour
         SetTile(tilemapBackground, position, normalTile);
     }
 
-    public void SetBombOnCell(Vector2Int position, Bomb bomb)
-    {
-        gridCellsDatas[position.x, position.y].bomb = bomb;
-        SetGridObjectType(position, ObjectType.Bomb);
-    }
-
     public void ResetBombOnCell(Vector2Int position)
     {
         gridCellsDatas[position.x, position.y].bomb = null;
         SetGridObjectType(position, ObjectType.Empty);
     }
-
-    private Player GetPlayerOnCell(Vector2Int position) => gridCellsDatas[position.x, position.y].player;
-    private Bomb GetBombOnCell(Vector2Int position) => gridCellsDatas[position.x, position.y].bomb;
-    private bool FindBuff() => Random.Range(0f, 1f) < chanceFindBuff;
 }

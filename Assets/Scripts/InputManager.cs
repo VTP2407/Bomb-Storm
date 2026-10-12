@@ -12,15 +12,25 @@ public class InputManager : MonoBehaviour
 
     private void Update()
     {
-        if (string.IsNullOrEmpty(player.playerId)) return;
+        if (player == null || string.IsNullOrEmpty(player.playerId)) return;
 
         if (player.canInput)
         {
-            HandleInput();
+            TryPlaceBomb();
+            TryMove();
         }
     }
 
-    private void HandleInput()
+    private void TryPlaceBomb()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            string jsonMsg = $"{{\"action\": \"PLACE_BOMB\", \"playerId\": \"{player.playerId}\"}}";
+            gameManager.SendWebSocketMessage(jsonMsg);
+        }
+    }
+
+    private void TryMove()
     {
         string moveDirection = "";
         Vector2Int nextPosition = player.gridPosition;
@@ -33,27 +43,29 @@ public class InputManager : MonoBehaviour
         else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) { moveDirection = "LEFT"; x = -1; }
         else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) { moveDirection = "RIGHT"; x = 1; }
 
-        player.SetMoveInput(x,y);
+        player.SetMoveInput(x, y);
+
+        if (string.IsNullOrEmpty(moveDirection))
+            return;
 
         nextPosition += new Vector2Int(x, y);
 
         if (!player.CanMove(nextPosition))
             return;
 
-        if (!string.IsNullOrEmpty(moveDirection))
+
+
+        player.canInput = false;
+
+        PlayerActionMessage actionMessage = new PlayerActionMessage
         {
-            player.canInput = false;
+            action = "MOVE",
+            playerId = player.playerId,
+            direction = moveDirection
+        };
 
-            PlayerActionMessage actionMessage = new PlayerActionMessage
-            {
-                action = "Move",
-                playerId = player.playerId,
-                direction = moveDirection
-            };
+        string jsonMsg = JsonUtility.ToJson(actionMessage);
+        gameManager.SendWebSocketMessage(jsonMsg);
 
-            string jsonMsg = JsonUtility.ToJson(actionMessage);
-
-            gameManager.SendWebSocketMessage(jsonMsg);
-        }
     }
 }

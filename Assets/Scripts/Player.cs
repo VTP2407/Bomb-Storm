@@ -5,12 +5,10 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     public string playerId = "";
-    [SerializeField] private BombStats bombStats;
     public Vector2Int gridPosition;
     [SerializeField] private GridManager gridManager;
     [SerializeField] private float moveSpeed = 2f;
     [Header("Player Stats")]
-    [SerializeField] private GameObject bombPrefab;
     [SerializeField] private int maxHealth = 1;
     [SerializeField] private int currentHealth;
     private Animator anim;
@@ -18,7 +16,6 @@ public class Player : MonoBehaviour
 
     private Coroutine moveCo;
     public bool canInput = true;
-    [SerializeField] private int bombCount = 0;
 
     public void SetMoveInput(int x, int y)
     {
@@ -30,7 +27,6 @@ public class Player : MonoBehaviour
         anim = GetComponent<Animator>();
         gridManager = FindAnyObjectByType<GridManager>();
 
-        //InitPlayerTransform();
         currentHealth = maxHealth;
         anim.SetFloat("LastMoveY", 1);
     }
@@ -48,29 +44,9 @@ public class Player : MonoBehaviour
         gridManager.SetPlayerOnCellData(position, this);
     }
 
-    private bool CanPlace() => bombCount < bombStats.maxBombCount && canInput && gridManager.CanPlace(gridPosition);
     public bool CanMove(Vector2Int position)
     {
         return gridManager.CanMove(position);
-    }
-
-    public void DecreaseBombCount() => bombCount--;
-
-    [ContextMenu("Add Max Bomb Count")]
-    public void AddMaxBombCount() => bombStats.maxBombCount++;
-
-    private void CreateBomb()
-    {
-        if (CanPlace() == false)
-            return;
-
-        GameObject bomb = Instantiate(bombPrefab, transform.position, Quaternion.identity);
-        Bomb bombScript = bomb.GetComponent<Bomb>();
-        bombScript.player = this;
-        bombScript.SetUp(gridManager, bombStats);
-        bombScript.SetGridData(gridPosition);
-        //Debug.Log("Create bomb in :" + gridPosition);
-        bombCount++;
     }
 
     public void SyncPositionFromServer(Vector2Int serverGridPosition)
@@ -99,7 +75,6 @@ public class Player : MonoBehaviour
                 if (gridManager.GetObjectTypeOnCell(serverGridPosition) == ObjectType.Buff)
                 {
                     gridManager.ResetObjectTile(serverGridPosition);
-                    AddMaxBombCount();
                     Debug.Log("Get buff in: " + serverGridPosition);
                 }
             }
@@ -151,8 +126,19 @@ public class Player : MonoBehaviour
         gridPosition = position;
     }
 
-    private void Die()
+    public void Die()
     {
+        Debug.Log($"Player {playerId} đã chết!");
+        canInput = false;
+
+        if (moveCo != null)
+            StopCoroutine(moveCo);
+
+        if (gridManager != null)
+        {
+            gridManager.RemovePlayerOnCell(gridPosition, this);
+        }
+
         Destroy(gameObject);
     }
 }

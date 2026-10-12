@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Net.WebSockets;
 using System.Text;
 using System.Threading;
@@ -14,12 +15,17 @@ public class GameManager : MonoBehaviour
     private ConcurrentQueue<string> messangeQueue = new ConcurrentQueue<string>();
 
     private GridManager gridManager;
-    private Player[] players;
+    private Dictionary<string, Player> players = new Dictionary<string, Player>();
+    private Player[] scenePlayers;
+
+    [Header("Prefab")]
+    [SerializeField] private GameObject bombPrefab;
+    private Dictionary<string, GameObject> activeBombs = new Dictionary<string, GameObject>();
 
     private void Awake()
     {
         gridManager = FindAnyObjectByType<GridManager>();
-        players = FindObjectsByType<Player>(FindObjectsSortMode.None);
+        scenePlayers = FindObjectsByType<Player>(FindObjectsSortMode.None);
     }
 
     async void Start()
@@ -97,32 +103,82 @@ public class GameManager : MonoBehaviour
             else if (msg.action == "INIT_PLAYER")
             {
                 PlayerPositionMessage playerPosition = JsonUtility.FromJson<PlayerPositionMessage>(jsonMessage);
-                
-                foreach(Player player in players)
+
+                foreach (Player sp in scenePlayers)
                 {
-                    if (string.IsNullOrEmpty(player.playerId))
+                    if (string.IsNullOrEmpty(sp.playerId))
                     {
                         Vector2Int newGridPosition = new Vector2Int(playerPosition.x, playerPosition.y);
-                        player.InitPlayerTransform(newGridPosition);
-                        player.SetGridPosition(newGridPosition);
-                        player.playerId = playerPosition.playerId;
+                        sp.InitPlayerTransform(newGridPosition);
+                        sp.SetGridPosition(newGridPosition);
+                        sp.playerId = playerPosition.playerId;
 
-                        Debug.Log($"Đã gán ID {playerPosition.playerId} cho nhân vật tại {player.transform.position}");
+                        players.Add(sp.playerId, sp);
+
+                        Debug.Log($"Đã gán ID {playerPosition.playerId} cho nhân vật tại {sp.transform.position}");
                         break;
                     }
                 }
             }
-            else if(msg.action == "UPDATE_POSITION")
+            else if (msg.action == "UPDATE_POSITION")
             {
                 PlayerPositionMessage playerPosition = JsonUtility.FromJson<PlayerPositionMessage>(jsonMessage);
 
-                foreach (Player player in players)
+                if (players.TryGetValue(playerPosition.playerId, out Player targetPlayer))
                 {
-                    if (player.playerId == playerPosition.playerId)
+                    Vector2Int newGridPosition = new Vector2Int(playerPosition.x, playerPosition.y);
+                    targetPlayer.SyncPositionFromServer(newGridPosition);
+                }
+            }
+            else if (msg.action == "SPAWN_BOMB")
+            {
+                SpawnBombMessage bombMessage = JsonUtility.FromJson<SpawnBombMessage>(jsonMessage);
+                Vector2Int bombPosition = new Vector2Int(bombMessage.x, bombMessage.y);
+                Vector3 wordPosition = gridManager.GetWordPosition(bombPosition);
+
+                GameObject newBomb = Instantiate(bombPrefab, wordPosition, Quaternion.identity);
+
+                Bomb bombScript = newBomb.GetComponent<Bomb>();
+                if (bombScript != null)
+                {
+                    bombScript.SetUp(bombMessage.lifeTime);
+                }
+
+                gridManager.SetGridObjectType(bombPosition, ObjectType.Bomb);
+
+                activeBombs[bombMessage.bombId] = newBomb;
+            }
+            else if (msg.action == "EXPLODE_BOMB")
+            {
+                ExplodeBombMessage explodeBombMessage = JsonUtility.FromJson<ExplodeBombMessage>(jsonMessage);
+
+                //Destroy bomb
+                if (activeBombs.TryGetValue(explodeBombMessage.bombId, out GameObject bomb))
+                {
+                    Destroy(bomb);
+                    activeBombs.Remove(explodeBombMessage.bombId);
+                }
+
+                //Explode 
+                foreach (Vector2IntDto cell in explodeBombMessage.explodedCells)
+                {
+                    Vector2Int position = new Vector2Int(cell.x, cell.y);
+                    gridManager.CreateExplodeEffect(position, false);
+                }
+
+                //Take damage
+                foreach (DamagedPlayerDto damaged in explodeBombMessage.damagedPlayers)
+                {
+                    if (players.TryGetValue(damaged.playerId, out Player targetPlayer))
                     {
-                        Vector2Int newGridPosition = new Vector2Int(playerPosition.x, playerPosition.y);
-                        player.SyncPositionFromServer(newGridPosition);
-                        break;
+                        targetPlayer.TakeDamage();
+
+                        if (!damaged.isAlive || damaged.health <= 0)
+                        {
+                            targetPlayer.Die();
+                            players.Remove(targetPlayer.playerId);
+                            Debug.Log($"Player {targetPlayer.playerId} đã chết!");
+                        }
                     }
                 }
             }
@@ -166,4 +222,34 @@ public class PlayerActionMessage
     public string action;
     public string playerId;
     public string direction;
+}
+
+[Serializable]
+public class SpawnBombMessage
+{
+    public string action;
+    public string bombId;
+    public int x;
+    public int y;
+    public float lifeTime;
+}
+
+[Serializable]
+public class ExplodeBombMessage
+{
+    public string action;
+    public string bombId;
+    public Vector2IntDto[] explodedCells;
+    public DamagedPlayerDto[] damagedPlayers;
+}
+
+[Serializable]
+public class Vector2IntDto { public int x; public int y; }
+
+[Serializable]
+public class DamagedPlayerDto
+{
+    public string playerId;
+    public int health;
+    public bool isAlive;
 }
